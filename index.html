@@ -1,46 +1,127 @@
 <!DOCTYPE html>
 
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
-        <link rel="stylesheet" href="/style.css"/>
-        <title>Weather Dashboard Project</title>
-        <script src="https://kit.fontawesome.com/70fcd40144.js" crossorigin="anonymous"></script>
-        </head>
-    <body>
+<html lang="en">
 
-        <!-- This code is for the header-->
-        <div class = "p-4 bg-dark text-light">
-        <div class = "container text-center">
-        <h1>Weather Dashboard</h1>
-        </div>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Weather Dashboard Project</title>
+    <script src="https://kit.fontawesome.com/70fcd40144.js" crossorigin="anonymous"></script>
+</head>
 
-        <!--Code for the Search Field-->
-        <div class="container-fluid">
-            <div class=row>
-                <div class="col-md-3 pl-2">
-                    <div class="card" style="width: 20rem;">
-                        <div class="card-body bg-light">
-                            <h6>Search for a City:</h6>
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="city-input">
-                                </div>
-                                <button id="search-button" type="submit" class="btn btn-primary"><i
-                                        class="fas fa-search"></i></button>
-                            </form>
+<body>
+
+    <!-- This code is for the header-->
+    <div class="p-4 bg-dark text-light">
+        <div class="container text-center">
+            <h1>Weather Dashboard</h1>
+        </div>
+    </div>
+
+    <!--Code for the Search Field-->
+    <div class="container-fluid">
+        <div class=row>
+            <div class="col-md-3 pl-2">
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body bg-light">
+                        <h6>Search for a City:</h6>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="city-input">
+                            </div>
+                            <button id="search-button" type="submit" class="btn btn-primary"><i
+                                    class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div>
+                        <ul id="prevCity" class="list-group">
+                            <li class="list-group-item list-group-item-secondary">sample search</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div id=current-weather class="card">
+                    <div class="card-body">
+                        <div id="city-date-icon">
+                            <span id='city-name'>
+                            </span>
+                            <span id='current-icon'></span>
+                        </div>
+                        <p class="card-text" id="current-temp"></p>
+                        <p class="card-text" id="current-humidity"></p>
+                        <p class="card-text" id="current-wind"></p>
+                        <p class="card-text" id="current-uv"></p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        
+        <div class="row">
+            <div id="forecast-weather" class="col-md-9">
+                <h4>5-Day Forecast:</h4>
+                <div id="forecast-cards">
+                    <div class="card forecast">
+                        <div id="forecast1" class="card-body">
+                            <span class="card-title" id='forecast-date1'>
+                            </span>
+                            <span id='forecast-icon1'></span>
+                            <p class="card-text" id="forecast-temp1"></p>
+                            <p class="card-text" id="forecast-humidity1"></p>
                         </div>
                     </div>
+                    <div class="card forecast">
+                        <div id="forecast2" class="card-body">
+                            <span class="card-title" id='forecast-date2'>
+                            </span>
+                            <span id='forecast-icon2'></span>
+                            <p class="card-text" id="forecast-temp2"></p>
+                            <p class="card-text" id="forecast-humidity2"></p>
+                        </div>
+                    </div>
+                    <div class="card forecast">
+                        <div id="forecast3" class="card-body">
+                            <span class="card-title" id='forecast-date3'>
+                            </span>
+                            <span id='forecast-icon3'></span>
+                            <p class="card-text" id="forecast-temp3"></p>
+                            <p class="card-text" id="forecast-humidity3"></p>
+                        </div>
+                    </div>
+                    <div class="card forecast">
+                        <div id="forecast4" class="card-body">
+                            <span class="card-title" id='forecast-date4'>
+                            </span>
+                            <span id='forecast-icon4'></span>
+                            <p class="card-text" id="forecast-temp4"></p>
+                            <p class="card-text" id="forecast-humidity4"></p>
+                        </div>
+                    </div>
+                    <div class="card forecast">
+                        <div id="forecast5" class="card-body">
+                            <span class="card-title" id='forecast-date5'>
+                            </span>
+                            <span id='forecast-icon5'></span>
+                            <p class="card-text" id="forecast-temp5"></p>
+                            <p class="card-text" id="forecast-humidity5"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+   
 
 
-    
 
 
 
@@ -48,10 +129,11 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="script.js"></script>    
-    </body>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="script.js"></script>
+</body>
+
 </html>
